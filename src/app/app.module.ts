@@ -1,9 +1,11 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, isDevMode, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { inject } from "@vercel/analytics";
 import { NgcCookieConsentConfig, NgcCookieConsentModule, provideNgcCookieConsent } from 'ngx-cookieconsent';
 
-import { AppRoutingModule } from './app-routing.module';
+import { provideRouter } from '@angular/router';
+import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './components/index/index.component';
 
@@ -35,7 +37,15 @@ const cookieConfig:NgcCookieConsentConfig = {
     AppRoutingModule,
     SweetAlert2Module.forRoot()
   ],
-  providers: [provideNgcCookieConsent(cookieConfig)],
+  providers: [provideNgcCookieConsent(cookieConfig),
+    provideRouter(routes),
+    {
+      provide: APP_INITIALIZER,
+      useFactory: () => {
+        inject({ mode: isDevMode() ? 'development' : 'production' })
+      }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

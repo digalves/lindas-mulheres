@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-index',
@@ -27,6 +28,7 @@ export class IndexComponent {
     this.fillVideoArray();
     this.fillPhotosSec2Array();
     this.fillGifsArray();
+    this.showAlert();
   }
 
   fillSlidesArray() {
@@ -51,6 +53,25 @@ export class IndexComponent {
     for(let n = 1; n <= this.amountGifs; n++) {
       this.gifsArray.push(n);
     }
+  }
+
+  showAlert() {
+    Swal.fire({
+      title: '<strong>Você tem 18 anos ou mais?</strong>',
+      confirmButtonText: 'SIM',
+      showCancelButton: true,
+      cancelButtonText: 'NÂO',
+      icon: "question",
+      backdrop: true,
+      allowOutsideClick: false,
+      
+    }).then((result) => {
+      if(result.value) {
+        
+      } else {
+        this.showAlert();
+      }
+    });
   }
 
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NgcCookieConsentConfig, NgcCookieConsentModule, provideNgcCookieConsent } from 'ngx-cookieconsent';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +33,7 @@ const cookieConfig:NgcCookieConsentConfig = {
     NgcCookieConsentModule.forRoot(cookieConfig),
     BrowserModule,
     AppRoutingModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [provideNgcCookieConsent(cookieConfig)],
   bootstrap: [AppComponent]

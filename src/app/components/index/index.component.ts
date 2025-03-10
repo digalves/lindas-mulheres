@@ -12,8 +12,7 @@ export class IndexComponent {
   public photosSlide: number = 3;
   public amountVideoFiles: number = 6;
   public amountPhotosSec2: number = 6;
-
-  public amountGifs: number = 6;
+  public amountGifs: number = 7;
   public slideArray: number[] = [];
   public videosArray: number[] = [];
   public photosSec2Array: number[] = [];

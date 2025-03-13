@@ -9,8 +9,11 @@ import Swal from 'sweetalert2';
 })
 export class IndexComponent {
 
+  currentPageVideos = 1;
+  currentPageFotos = 1;
+  currentPageGifs = 1;
   public photosSlide: number = 3;
-  public amountVideoFiles: number = 6;
+  public amountVideoFiles: number = 12;
   public amountPhotosSec2: number = 6;
   public amountGifs: number = 7;
   public slideArray: number[] = [];

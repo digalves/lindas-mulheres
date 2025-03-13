@@ -10,7 +10,7 @@
             <!-- <h4 style="color: black; margin: 0; padding: 0;">LM</h4> -->
           </a>
         </div>
-
+        <!-- MENU -->
         <div class="col-auto">
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar">
@@ -37,16 +37,15 @@
       </div>
     </div>
   </nav>
-
+  <!-- MENU -->
+   <!-- PRIMEIRA SEÇÂO 3 FOTOS -->
   <section id="billboard" class="bg-light py-5">
     <div class="container">
       <div class="row justify-content-center">
         <h1 class="section-title text-center mt-4" data-aos="fade-up">Lindas Mulheres</h1>
         <div class="col-md-6 text-center" data-aos="fade-up" data-aos-delay="300">
           <p>Bem-vindo ao nosso mundo de beleza e elegância!
-            Explore nossa seleção de mulheres encantadoras e sofisticadas. Cada foto celebra o charme e a graça do
-            feminino.
-            Admire a beleza em sua forma mais pura.</p>
+            <b style="color: brown;">Conteúdo novo todos os dias!</b></p>
         </div>
       </div>
       <div class="row">
@@ -69,7 +68,7 @@
       </div>
     </div>
   </section>
-
+<!-- PRIMEIRA SEÇÂO -->
   <section class="features py-5">
     <div class="container">
       <div class="row">
@@ -82,7 +81,7 @@
     <ins class="eas6a97888e2" data-zoneid="5556804"></ins>
     <script>(AdProvider = window.AdProvider || []).push({ "serve": {} });</script>
   </div>
-
+<!-- VIDEOS -->
   <section class="categories overflow-hidden">
     <div class="container">
       <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
@@ -91,8 +90,8 @@
       </div>
       <div class="open-up" data-aos="zoom-out">
         <div class="row">
-          @for (video of videosArray; track $index) {
-          <div class="col-md-4">
+          <!-- @for (video of videosArray; track $index) { -->
+          <div class="col-md-4" *ngFor="let video of videosArray | paginate: { id: 'paginationVideos', itemsPerPage: 6, currentPage: currentPageVideos }">
             <div class="cat-item image-zoom-effect">
               <div class="image-holder">
                 <a href="#">
@@ -108,12 +107,21 @@
               </div>
             </div>
           </div>
-          }
+          <pagination-controls id="paginationVideos" (pageChange)="currentPageVideos = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+          <!-- } -->
         </div>
       </div>
     </div>
   </section>
+<!-- VIDEOS -->
 
+
+<script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script> 
+ <ins class="eas6a97888e10" data-zoneid="5561652"></ins> 
+ <script>(AdProvider = window.AdProvider || []).push({"serve": {}});</script>
+
+
+ <!-- FOTOS -->
   <section class="categories overflow-hidden">
     <div class="container">
       <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
@@ -122,8 +130,8 @@
       </div>
       <div class="open-up" data-aos="zoom-out">
         <div class="row">
-          @for (photo of photosSec2Array; track $index) {
-          <div class="col-md-4">
+          <!-- @for (photo of photosSec2Array; track $index) { -->
+          <div class="col-md-4" *ngFor="let photo of photosSec2Array | paginate: { id: 'paginationPhotos', itemsPerPage: 6, currentPage: currentPageFotos }">
             <div class="cat-item image-zoom-effect">
               <div class="image-holder">
                 <a href="#">
@@ -138,12 +146,19 @@
               </div>
             </div>
           </div>
-          }
+          <pagination-controls id="paginationPhotos" (pageChange)="currentPageFotos = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+          <!-- } -->
         </div>
       </div>
     </div>
   </section>
+<!-- FOTOS -->
 
+<script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script> 
+ <ins class="eas6a97888e10" data-zoneid="5561654"></ins> 
+ <script>(AdProvider = window.AdProvider || []).push({"serve": {}});</script>
+
+ <!-- GIFs -->
   <section class="categories overflow-hidden">
     <div class="container">
       <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
@@ -152,8 +167,8 @@
       </div>
       <div class="open-up" data-aos="zoom-out">
         <div class="row">
-          @for (gif of gifsArray; track $index) {
-          <div class="col-md-4">
+          <!-- @for (gif of gifsArray; track $index) { -->
+            <div class="col-md-4" *ngFor="let gif of gifsArray | paginate: { id: 'paginationGifs', itemsPerPage: 6, currentPage: currentPageGifs }">
             <div class="cat-item image-zoom-effect">
               <div class="image-holder">
                 <a href="#">
@@ -167,12 +182,13 @@
               </div>
             </div>
           </div>
-          }
+          <pagination-controls id="paginationGifs" (pageChange)="currentPageGifs = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+          <!-- } -->
         </div>
       </div>
     </div>
   </section>
-
+<!-- GIFs -->
   <footer id="footer" class="mt-5">
     <div class="container">
       <div class="row d-flex flex-wrap justify-content-between py-5">

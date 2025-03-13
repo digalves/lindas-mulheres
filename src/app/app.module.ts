@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { inject } from "@vercel/analytics";
 import { NgcCookieConsentConfig, NgcCookieConsentModule, provideNgcCookieConsent } from 'ngx-cookieconsent';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { provideRouter } from '@angular/router';
 import { AppRoutingModule, routes } from './app-routing.module';
@@ -34,6 +35,7 @@ const cookieConfig:NgcCookieConsentConfig = {
   imports: [
     NgcCookieConsentModule.forRoot(cookieConfig),
     BrowserModule,
+    NgxPaginationModule,
     AppRoutingModule,
     SweetAlert2Module.forRoot()
   ],

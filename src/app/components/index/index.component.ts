@@ -13,9 +13,9 @@ export class IndexComponent {
   currentPageFotos = 1;
   currentPageGifs = 1;
   public photosSlide: number = 3;
-  public amountVideoFiles: number = 12;
-  public amountPhotosSec2: number = 6;
-  public amountGifs: number = 7;
+  public amountVideoFiles: number = 15;
+  public amountPhotosSec2: number = 9;
+  public amountGifs: number = 10;
   public slideArray: number[] = [];
   public videosArray: number[] = [];
   public photosSec2Array: number[] = [];

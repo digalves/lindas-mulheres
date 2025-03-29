@@ -37,7 +37,7 @@ const cookieConfig:NgcCookieConsentConfig = {
     BrowserModule,
     NgxPaginationModule,
     AppRoutingModule,
-    SweetAlert2Module.forRoot()
+    SweetAlert2Module.forRoot(),
   ],
   providers: [provideNgcCookieConsent(cookieConfig),
     provideRouter(routes),

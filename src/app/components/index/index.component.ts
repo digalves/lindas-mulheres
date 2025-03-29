@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { injectSpeedInsights } from '@vercel/speed-insights';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -22,10 +23,11 @@ export class IndexComponent {
   public gifsArray: number[] = [];
 
   constructor() {
-
+  
   }
 
   ngOnInit(): void {
+    injectSpeedInsights();
     this.fillSlidesArray();
     this.fillVideoArray();
     this.fillPhotosSec2Array();
